@@ -58,3 +58,26 @@ def test_generate_app():
         )
 
         assert app == g.app_name()
+
+
+def test_generate_archaius():
+
+    options = {}
+
+    for project in PROJECTS:
+
+        g = Generator(
+            PROJECTS[project]['project'],
+            PROJECTS[project]['repo'],
+            PROJECTS[project]['env'],
+        )
+
+        options['s3'] = 'archaius-{0}/{1}/{2}{1}/'.format(
+            PROJECTS[project]['env'],
+            PROJECTS[project]['project'],
+            PROJECTS[project]['repo'],
+        )
+
+        archaius = g.archaius()
+        for option in archaius:
+            assert options[option] == archaius[option]

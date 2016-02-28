@@ -20,3 +20,15 @@ class Generator(object):
         )
 
         return dns
+
+    def archaius(self):
+        """Generate archaius bucket path"""
+        archaius = {}
+
+        archaius['s3'] = 'archaius-{0}/{1}/{2}{1}/'.format(
+            self.env,
+            self.project,
+            self.repo,
+        )
+
+        return archaius
