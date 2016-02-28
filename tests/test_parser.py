@@ -14,7 +14,6 @@ def test_parser_url():
     ]
 
     for url in urls:
-        p = Parser(url)
-        project, repo = p.parse_url()
+        project, repo = Parser(url).parse_url()
         assert project == 'gogoair'
         assert repo == 'test'
