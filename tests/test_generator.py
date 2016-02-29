@@ -130,3 +130,26 @@ def test_generate_jenkins():
         )
 
         assert job_name == g.jenkins()['name']
+
+
+def test_generate_gitlab():
+
+    for project in PROJECTS:
+        g = Generator(
+            PROJECTS[project]['project'],
+            PROJECTS[project]['repo'],
+            PROJECTS[project]['env'],
+        )
+
+        git = '{0}/{1}'.format(
+            PROJECTS[project]['project'],
+            PROJECTS[project]['repo'],
+        )
+
+        git_main = git
+        git_qe = '{0}-qa'.format(git)
+        git_config = '{0}-config'.format(git)
+
+        assert git_main == g.gitlab()['main']
+        assert git_qe == g.gitlab()['qe']
+        assert git_config == g.gitlab()['config']

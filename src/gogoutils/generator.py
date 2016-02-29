@@ -87,3 +87,26 @@ class Generator(object):
         )
 
         return job
+
+
+    def gitlab(self):
+        """Generate gitlab detauls"""
+
+        git = {}
+
+        git['main'] = '{0}/{1}'.format(
+            self.project,
+            self.repo,
+        )
+
+        git['qe'] = '{0}/{1}-qa'.format(
+            self.project,
+            self.repo,
+        )
+
+        git['config'] = '{0}/{1}-config'.format(
+            self.project,
+            self.repo,
+        )
+
+        return git
