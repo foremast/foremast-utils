@@ -11,6 +11,9 @@ def test_parser_url():
         'https://github.com/gogoair/test.git',
         'https://username@testgithub.com/gogoair/test.git',
         'git@github.com:gogoair/test.git',
+        'git://git@github.com/gogoair/test.git',
+        'file:///opt/git/gogoair/test.git',
+        'ssh://git@github.com/gogoair/test.git',
     ]
 
     for url in urls:
