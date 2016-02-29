@@ -11,13 +11,21 @@ class Generator(object):
         """Generate application name"""
         return self.app
 
-    def dns(self):
+    def dns_elb(self):
         """Generate dns domain"""
         dns = '{0}.{1}.{2}.example.com'.format(
             self.repo,
             self.project,
             self.env
         )
+
+        return dns
+
+    def dns(self):
+        """Combined dns details"""
+        dns = {
+            'elb': self.dns_elb(),
+        }
 
         return dns
 

@@ -39,7 +39,7 @@ def test_generate_dns():
             PROJECTS[project]['project'],
             PROJECTS[project]['env'],
         )
-        assert dns == g.dns()
+        assert dns == g.dns()['elb']
 
 
 def test_generate_app():
