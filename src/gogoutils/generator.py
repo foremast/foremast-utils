@@ -1,10 +1,19 @@
+class GeneratorError(Exception):
+    pass
+
+
 class Generator(object):
     """Generates application details"""
 
     def __init__(self, project, repo, env='dev'):
-        self.project = project
-        self.repo = repo
-        self.env = env
+
+        if not all([project, repo, env]):
+            error = 'project, repo or env may not be "None" or emtpy'
+            raise GeneratorError(error)
+
+        self.project = project.lower()
+        self.repo = repo.lower()
+        self.env = env.lower()
         self.app = '{0}{1}'.format(project, repo)
 
     def app_name(self):

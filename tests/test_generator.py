@@ -1,4 +1,5 @@
-from gogoutils.generator import Generator
+import pytest
+from gogoutils.generator import Generator, GeneratorError
 
 
 PROJECTS = {
@@ -24,6 +25,24 @@ PROJECTS = {
     },
 }
 
+ERROR_PROJECTS = {
+    'repo1': {
+        'project': 'gogoair',
+        'repo': 'test',
+    },
+    'repo2': {
+        'project': 'gogoair',
+        'env': 'stage',
+    },
+    'repo3': {
+        'repo': 'repo1',
+        'env': 'env1',
+    },
+    'repo4': {
+        'env': 'unknown',
+    },
+}
+
 
 def test_default_env():
 
@@ -43,6 +62,24 @@ def test_default_env():
     )
 
     assert dns_elb == g.dns()['elb']
+
+
+def test_empty_params():
+
+    for project in ERROR_PROJECTS:
+        args = []
+
+        for key in ['project', 'repo', 'env']:
+
+            try:
+                value = ERROR_PROJECTS[project][key]
+            except KeyError:
+                value = None
+
+            args.append(value)
+
+        with pytest.raises(GeneratorError):
+            g = Generator(*args)
 
 
 def test_generate_dns():

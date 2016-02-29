@@ -8,7 +8,7 @@ class Parser(object):
     """A Parser for urls"""
 
     def __init__(self, url):
-        self.url = url
+        self.url = url.lower()
 
     def parse_url(self):
         """Parses a git/ssh/http(s) url"""
