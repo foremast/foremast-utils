@@ -113,3 +113,20 @@ def test_generate_iam():
         assert iam_group == g.iam()['group']
         assert iam_role == g.iam()['role']
         assert iam_policy == g.iam()['policy']
+
+
+def test_generate_jenkins():
+
+    for project in PROJECTS:
+        g = Generator(
+            PROJECTS[project]['project'],
+            PROJECTS[project]['repo'],
+            PROJECTS[project]['env'],
+        )
+
+        job_name = '{0}_{1}'.format(
+            PROJECTS[project]['project'],
+            PROJECTS[project]['repo'],
+        )
+
+        assert job_name == g.jenkins()['name']

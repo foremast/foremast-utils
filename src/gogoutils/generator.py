@@ -75,3 +75,15 @@ class Generator(object):
         )
 
         return archaius
+
+    def jenkins(self):
+        """Generate jenkins job details"""
+
+        job = {}
+
+        job['name'] = '{0}_{1}'.format(
+            self.project,
+            self.repo,
+        )
+
+        return job
