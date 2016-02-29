@@ -39,7 +39,14 @@ def test_generate_dns():
             PROJECTS[project]['project'],
             PROJECTS[project]['env'],
         )
+
+        instance = '{0}{1}-xx.{2}.example.com'.format(
+            PROJECTS[project]['repo'],
+            PROJECTS[project]['project'],
+            PROJECTS[project]['env'],
+        )
         assert dns == g.dns()['elb']
+        assert instance == g.dns()['instance']
 
 
 def test_generate_app():

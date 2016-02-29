@@ -21,10 +21,22 @@ class Generator(object):
 
         return dns
 
+    def dns_instance(self):
+        """Generate dns instance"""
+
+        instance = '{0}{1}-xx.{2}.example.com'.format(
+            self.repo,
+            self.project,
+            self.env,
+        )
+
+        return instance
+
     def dns(self):
         """Combined dns details"""
         dns = {
             'elb': self.dns_elb(),
+            'instance': self.dns_instance(),
         }
 
         return dns
