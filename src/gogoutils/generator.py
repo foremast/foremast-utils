@@ -88,7 +88,6 @@ class Generator(object):
 
         return job
 
-
     def gitlab(self):
         """Generate gitlab details"""
 
