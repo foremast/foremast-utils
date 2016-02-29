@@ -14,6 +14,9 @@ def test_parser_url():
         'git://git@github.com/gogoair/test.git',
         'file:///opt/git/gogoair/test.git',
         'ssh://git@github.com/gogoair/test.git',
+        '/gogoair/test.git',
+        '/var/opt/gitlab/git-data/repositories/gogoair/test.git',
+        'gogoair/test.git',
     ]
 
     for url in urls:
