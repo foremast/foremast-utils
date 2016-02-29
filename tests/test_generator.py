@@ -25,6 +25,26 @@ PROJECTS = {
 }
 
 
+def test_default_env():
+
+    project = {
+        'project': 'gogoair',
+        'repo': 'no_env',
+    }
+
+    g = Generator(
+        project['project'],
+        project['repo'],
+    )
+
+    dns_elb = '{0}.{1}.dev.example.com'.format(
+        project['repo'],
+        project['project'],
+    )
+
+    assert dns_elb == g.dns()['elb']
+
+
 def test_generate_dns():
 
     for project in PROJECTS:

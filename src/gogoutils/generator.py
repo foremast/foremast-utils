@@ -1,7 +1,7 @@
 class Generator(object):
     """Generates application details"""
 
-    def __init__(self, project, repo, env):
+    def __init__(self, project, repo, env='dev'):
         self.project = project
         self.repo = repo
         self.env = env
