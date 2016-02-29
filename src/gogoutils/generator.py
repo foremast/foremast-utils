@@ -41,6 +41,29 @@ class Generator(object):
 
         return dns
 
+    def iam(self):
+        """Generate iam details"""
+
+        iam_base_name = '{0}_{1}'.format(
+            self.project,
+            self.repo,
+        )
+
+        iam = {}
+
+        iam['user'] = iam_base_name
+        iam['group'] = self.project
+
+        iam['role'] = '{0}_role'.format(
+            iam_base_name,
+        )
+
+        iam['policy'] = '{0}_policy'.format(
+            iam_base_name,
+        )
+
+        return iam
+
     def archaius(self):
         """Generate archaius bucket path"""
         archaius = {}

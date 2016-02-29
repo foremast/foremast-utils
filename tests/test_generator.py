@@ -88,3 +88,28 @@ def test_generate_archaius():
         archaius = g.archaius()
         for option in archaius:
             assert options[option] == archaius[option]
+
+
+def test_generate_iam():
+
+    for project in PROJECTS:
+        g = Generator(
+            PROJECTS[project]['project'],
+            PROJECTS[project]['repo'],
+            PROJECTS[project]['env'],
+        )
+
+        iam_base = '{0}_{1}'.format(
+            PROJECTS[project]['project'],
+            PROJECTS[project]['repo'],
+        )
+
+        iam_user = iam_base
+        iam_group = PROJECTS[project]['project']
+        iam_role = '{0}_role'.format(iam_base)
+        iam_policy = '{0}_policy'.format(iam_base)
+
+        assert iam_user == g.iam()['user']
+        assert iam_group == g.iam()['group']
+        assert iam_role == g.iam()['role']
+        assert iam_policy == g.iam()['policy']
