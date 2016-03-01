@@ -1,4 +1,5 @@
-from gogoutils.parser import Parser
+import pytest
+from gogoutils.parser import Parser, ParserError
 
 
 def test_parser_url():
@@ -26,3 +27,14 @@ def test_parser_url():
         project, repo = Parser(url).parse_url()
         assert project == 'gogoair'
         assert repo == 'test'
+
+
+def test_empty_params():
+    urls = [
+        None,
+        '',
+    ]
+
+    for url in urls:
+        with pytest.raises(ParserError):
+            g = Parser(url)

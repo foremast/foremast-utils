@@ -4,10 +4,18 @@ except ImportError:
     from urlparse import urlparse
 
 
+class ParserError(Exception):
+    pass
+
+
 class Parser(object):
     """A Parser for urls"""
 
     def __init__(self, url):
+
+        if not url:
+            error = 'url may not be "None" or empty'
+            raise ParserError(error)
         self.url = url.lower()
 
     def parse_url(self):
