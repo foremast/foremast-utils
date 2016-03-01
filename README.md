@@ -56,3 +56,22 @@ $ pip install -r requirements-dev.txt
 
 $ tox
 ```
+
+Publishing (Artifactory)
+------------------------
+This is an internal library so it needs to be published to Artifactory.
+
+In your `~/.pypirc` file, add the following:
+```
+[gogo]
+repository = https://pypi.example.com
+username = username
+password = xxxyyyyzzzz
+```
+
+Update version number in `setup.py`.
+
+Publish that version to pypi in Artifactory
+```
+$ python setup.py sdist upload -r gogo
+```
