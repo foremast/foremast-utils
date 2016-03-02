@@ -8,7 +8,7 @@ class Generator(object):
     def __init__(self, project, repo, env='dev'):
 
         if not all([project, repo, env]):
-            error = 'project, repo or env may not be "None" or emtpy'
+            error = 'project, repo or env may not be "None" or empty'
             raise GeneratorError(error)
 
         self.project = project.lower()
