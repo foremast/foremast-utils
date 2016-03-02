@@ -82,6 +82,12 @@ def test_empty_params():
             g = Generator(*args)
 
 
+def test_camel_cases():
+    app_name = 'gogoairTest'
+    g = Generator('gogoair', 'Test')
+    assert app_name.lower() == g.app_name()
+
+
 def test_generate_dns():
 
     for project in PROJECTS:
