@@ -63,6 +63,10 @@ This is an internal library so it needs to be published to Artifactory.
 
 In your `~/.pypirc` file, add the following:
 ```
+[distutils]
+index-servers =
+    gogo
+
 [gogo]
 repository = https://pypi.example.com
 username = username
