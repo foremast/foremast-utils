@@ -7,14 +7,23 @@ class Generator(object):
 
     def __init__(self, project, repo, env='dev'):
 
-        if not all([project, repo, env]):
-            error = 'project, repo or env may not be "None" or empty'
-            raise GeneratorError(error)
+        params = {
+            'project': project,
+            'repo': repo,
+            'env': env,
+        }
 
-        self.project = project.lower()
-        self.repo = repo.lower()
-        self.env = env.lower()
-        self.app = '{0}{1}'.format(project, repo)
+        for param, value in params.items():
+            if not value:
+                error = '"{0}" parameter may not be None or empty'.format(
+                    param,
+                )
+                raise GeneratorError(error)
+
+        self.project = params.get('project').lower()
+        self.repo = params.get('repo').lower()
+        self.env = params.get('env').lower()
+        self.app = '{0}{1}'.format(self.project, self.repo)
 
     def app_name(self):
         """Generate application name"""
