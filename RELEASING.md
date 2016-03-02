@@ -6,6 +6,10 @@ Setup
 
 Add the following to `~/.pypirc` file
 ```
+[distutils]
+index-servers =
+    gogo
+
 [gogo]
 repository = https://pypi.example.com
 username = username
