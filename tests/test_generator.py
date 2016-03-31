@@ -83,7 +83,7 @@ def test_empty_params():
 
 
 def test_camel_cases():
-    app_name = 'gogoairTest'
+    app_name = 'Testgogoair'
     g = Generator('gogoair', 'Test')
     assert app_name.lower() == g.app_name()
 
@@ -123,8 +123,8 @@ def test_generate_app():
         )
 
         app = '{0}{1}'.format(
-            PROJECTS[project]['project'],
             PROJECTS[project]['repo'],
+            PROJECTS[project]['project'],
         )
 
         assert app == g.app_name()
