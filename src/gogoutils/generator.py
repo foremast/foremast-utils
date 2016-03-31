@@ -23,7 +23,7 @@ class Generator(object):
         self.project = params.get('project').lower()
         self.repo = params.get('repo').lower()
         self.env = params.get('env').lower()
-        self.app = '{0}{1}'.format(self.project, self.repo)
+        self.app = '{0}{1}'.format(self.repo, self.project)
 
     def app_name(self):
         """Generate application name"""
