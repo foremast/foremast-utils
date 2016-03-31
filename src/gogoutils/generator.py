@@ -80,6 +80,8 @@ class Generator(object):
             iam_base_name,
         )
 
+        iam['profile'] = '{0}_profile'.format(iam_base_name)
+
         return iam
 
     def archaius(self):
