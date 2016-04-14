@@ -5,7 +5,7 @@ class GeneratorError(Exception):
 class Generator(object):
     """Generates application details"""
 
-    def __init__(self, project, repo, env='dev'):
+    def __init__(self, project, repo, env='dev', lower=True):
 
         params = {
             'project': project,
@@ -19,10 +19,14 @@ class Generator(object):
                     param,
                 )
                 raise GeneratorError(error)
-
-        self.project = params.get('project').lower()
-        self.repo = params.get('repo').lower()
-        self.env = params.get('env').lower()
+        if lower:
+            self.project = params.get('project').lower()
+            self.repo = params.get('repo').lower()
+            self.env = params.get('env').lower()
+        else:
+            self.project = params.get('project')
+            self.repo = params.get('repo')
+            self.env = params.get('env')
         self.app = '{0}{1}'.format(self.repo, self.project)
 
     def app_name(self):

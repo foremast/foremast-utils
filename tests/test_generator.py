@@ -88,8 +88,13 @@ def test_camel_cases():
     assert app_name.lower() == g.app_name()
 
 
-def test_generate_dns():
+def test_valid_camel_cases():
+    app_name = 'Test-configgogoair'
+    g = Generator('gogoair', 'Test-config', lower=False)
+    assert app_name == g.app_name()
 
+
+def test_generate_dns():
     for project in PROJECTS:
         g = Generator(
             PROJECTS[project]['project'],

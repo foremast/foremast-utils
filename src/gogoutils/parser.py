@@ -11,12 +11,12 @@ class ParserError(Exception):
 class Parser(object):
     """A Parser for urls"""
 
-    def __init__(self, url):
+    def __init__(self, url, lower=True):
 
         if not url:
             error = 'url may not be "None" or empty'
             raise ParserError(error)
-        self.url = url.lower()
+        self.url = url.lower() if lower else url
 
     def parse_url(self):
         """Parses a git/ssh/http(s) url"""
@@ -32,4 +32,4 @@ class Parser(object):
         # Ony capture last two list items
         project, repo = url.split('/')[-2:]
 
-        return (project, repo)
+        return project, repo
