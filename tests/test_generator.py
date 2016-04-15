@@ -89,9 +89,10 @@ def test_camel_cases():
 
 
 def test_valid_camel_cases():
-    app_name = 'Test-configgogoair'
-    g = Generator('gogoair', 'Test-config', lower=False)
-    assert app_name == g.app_name()
+    repo_name = 'gogoair/Test-config'
+    g = Generator('gogoair', 'Test-config')
+    uri_dict = g.gitlab()
+    assert repo_name == uri_dict['main']
 
 
 def test_generate_dns():
