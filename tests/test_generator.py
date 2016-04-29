@@ -140,18 +140,18 @@ def test_generate_archaius():
 
     options = {}
 
-    for project in PROJECTS:
+    for repo in PROJECTS.values():
 
         g = Generator(
-            PROJECTS[project]['project'],
-            PROJECTS[project]['repo'],
-            PROJECTS[project]['env'],
+            repo['project'],
+            repo['repo'],
+            repo['env'],
         )
 
         options['s3'] = 'archaius-{0}/{1}/{2}{1}/'.format(
-            PROJECTS[project]['env'],
-            PROJECTS[project]['project'],
-            PROJECTS[project]['repo'],
+            repo['env'],
+            repo['project'],
+            repo['repo'],
         )
 
         archaius = g.archaius()
