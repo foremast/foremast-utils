@@ -153,6 +153,8 @@ def test_generate_archaius():
             repo['project'],
             repo['repo'],
         )
+        options['bucket'] = 'archaius-{0}'.format(repo['env'])
+        options['path'] = '{0}/{1}{0}'.format(repo['project'], repo['repo'])
 
         archaius = g.archaius()
         for option in archaius:

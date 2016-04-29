@@ -66,10 +66,11 @@ class Generator(object):
 
     def archaius(self):
         """Generate archaius bucket path"""
-        archaius_name = 'archaius-{0}/{1}/{2}{1}/'.format(self.env,
-                                                               self.project,
-                                                               self.repo)
-        archaius = {'s3': archaius_name}
+        bucket = 'archaius-{0}'.format(self.env)
+        path = '/'.join([self.project, self.app])
+        archaius_name = '{0}/{1}/'.format(bucket, path)
+
+        archaius = {'s3': archaius_name, 'bucket': bucket, 'path': path}
 
         return archaius
 
