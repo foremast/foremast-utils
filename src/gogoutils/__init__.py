@@ -1,2 +1,3 @@
-from .parser import Parser
+from .formats import Formats
 from .generator import Generator
+from .parser import Parser

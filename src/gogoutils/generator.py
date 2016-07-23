@@ -1,3 +1,6 @@
+from gogoutils.formats import Formats
+
+
 class GeneratorError(Exception):
     pass
 
@@ -5,7 +8,7 @@ class GeneratorError(Exception):
 class Generator(object):
     """Generates application details"""
 
-    def __init__(self, project, repo, env='dev'):
+    def __init__(self, project, repo, env='dev', formats={}):
 
         params = {
             'project': project,
@@ -20,27 +23,29 @@ class Generator(object):
                 )
                 raise GeneratorError(error)
 
-        self.raw_project = params.get('project')
-        self.project = params.get('project').lower()
-        self.raw_repo = params.get('repo')
-        self.repo = params.get('repo').lower()
-        self.env = params.get('env').lower()
-        self.app = '{0}{1}'.format(self.repo, self.project)
+        self.format = Formats(formats)
+        self.data = {
+            'repo': params.get('repo').lower(),
+            'project': params.get('project').lower(),
+            'raw_project': params.get('project'),
+            'raw_repo': params.get('repo'),
+            'env': params.get('env').lower(),
+        }
+        self.data.update(self.format.get_formats())
 
     def app_name(self):
         """Generate application name"""
-        return self.app
+        app = self.format['app'].format(**self.data)
+        return app
 
     def dns_elb(self):
         """Generate dns domain"""
-        dns = '{0}.{1}.{2}.example.com'.format(self.repo, self.project,
-                                               self.env)
+        dns = self.format['dns_elb'].format(**self.data)
         return dns
 
     def dns_instance(self):
         """Generate dns instance"""
-        instance = '{0}{1}-xx.{2}.example.com'.format(self.repo, self.project,
-                                                      self.env)
+        instance = self.format['dns_instance'].format(**self.data)
         return instance
 
     def dns(self):
@@ -54,29 +59,28 @@ class Generator(object):
 
     def iam(self):
         """Generate iam details"""
-        iam_base_name = '{0}_{1}'.format(self.project, self.repo)
+        iam_base_name = self.format['iam_base'].format(**self.data)
 
-        iam = {'user': iam_base_name,
-               'group': self.project,
-               'role': '{0}_role'.format(iam_base_name),
-               'policy': '{0}_policy'.format(iam_base_name),
-               'profile': '{0}_profile'.format(iam_base_name)}
+        iam = {'user': self.format['iam_user'].format(**self.data),
+               'group': self.format['iam_group'].format(**self.data),
+               'role': self.format['iam_role'].format(**self.data),
+               'policy': self.format['iam_policy'].format(**self.data),
+               'profile': self.format['iam_profile'].format(**self.data)}
 
         return iam
 
     def archaius(self):
         """Generate archaius bucket path"""
-        bucket = 'archaius-{0}'.format(self.env)
-        path = '/'.join([self.project, self.app])
-        archaius_name = '{0}/{1}/'.format(bucket, path)
-
+        bucket = self.format['s3_bucket'].format(**self.data)
+        path = self.format['s3_bucket_path'].format(**self.data)
+        archaius_name = self.format['s3_archaius_name'].format(**self.data)
         archaius = {'s3': archaius_name, 'bucket': bucket, 'path': path}
 
         return archaius
 
     def jenkins(self):
         """Generate jenkins job details"""
-        job_name = '{0}_{1}'.format(self.project, self.repo)
+        job_name = self.format['jenkins_job_name'].format(**self.data)
         job = {'name': job_name}
 
         return job
@@ -84,9 +88,9 @@ class Generator(object):
     def gitlab(self):
         """Generate gitlab details"""
 
-        main_name = '{0}/{1}'.format(self.raw_project, self.raw_repo)
-        qe_name = '{0}-qa'.format(main_name)
-        config_name = '{0}-config'.format(main_name)
+        main_name = self.format['git_repo'].format(**self.data)
+        qe_name = self.format['git_repo_qe'].format(**self.data)
+        config_name = self.format['git_repo_configs'].format(**self.data)
 
         git = {'main': main_name,
                'qe': qe_name,
