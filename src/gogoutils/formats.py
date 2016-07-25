@@ -1,5 +1,8 @@
 """Determine the generator format"""
-from collections import ChainMap
+try:
+    from collections import ChainMap
+except ImportError:
+    from ConfigParser import _Chainmap as ChainMap
 
 DEFAULT_FORMAT = {
     'domain': 'example.com',
