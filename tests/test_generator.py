@@ -80,7 +80,7 @@ def test_empty_params():
             args.append(value)
 
         with pytest.raises(GeneratorError):
-            g = Generator(*args)
+            Generator(*args)
 
 
 def test_camel_cases():
