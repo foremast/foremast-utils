@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='gogo-utils',
-    version='0.3',
+    version='0.3.1',
     description='A utility library used by various internal tools.',
     long_description=open('README.md').read(),
     author='Sijis Aviles',
