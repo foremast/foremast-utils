@@ -1,3 +1,4 @@
+"""Validate Generator class."""
 import pytest
 from gogoutils.generator import Generator, GeneratorError
 
@@ -45,7 +46,7 @@ ERROR_PROJECTS = {
 
 
 def test_default_env():
-
+    """Validate defaults."""
     project = {
         'project': 'gogoair',
         'repo': 'no_env',
@@ -65,7 +66,7 @@ def test_default_env():
 
 
 def test_empty_params():
-
+    """Validate empty."""
     for project in ERROR_PROJECTS:
         args = []
 
@@ -83,12 +84,14 @@ def test_empty_params():
 
 
 def test_camel_cases():
+    """Validate Application name is lowercase."""
     app_name = 'Testgogoair'
     g = Generator('gogoair', 'Test')
     assert app_name.lower() == g.app_name()
 
 
 def test_valid_camel_cases():
+    """Validate case sensitivity for Git repository names."""
     repo_name = 'gogoair/Test-config'
     g = Generator('gogoair', 'Test-config')
     uri_dict = g.gitlab()
@@ -96,6 +99,7 @@ def test_valid_camel_cases():
 
 
 def test_generate_dns():
+    """Validate generated DNS values."""
     for project in PROJECTS:
         g = Generator(
             PROJECTS[project]['project'],
@@ -119,7 +123,7 @@ def test_generate_dns():
 
 
 def test_generate_app():
-
+    """Validate generated App values."""
     for project in PROJECTS:
 
         g = Generator(
@@ -137,7 +141,7 @@ def test_generate_app():
 
 
 def test_generate_archaius():
-
+    """Validate generated Archiaus values."""
     options = {}
 
     for repo in PROJECTS.values():
@@ -162,7 +166,7 @@ def test_generate_archaius():
 
 
 def test_generate_iam():
-
+    """Validate generated IAM values."""
     for project in PROJECTS:
         g = Generator(
             PROJECTS[project]['project'],
@@ -189,7 +193,7 @@ def test_generate_iam():
 
 
 def test_generate_jenkins():
-
+    """Validate generated Jenkins values."""
     for project in PROJECTS:
         g = Generator(
             PROJECTS[project]['project'],
@@ -206,7 +210,7 @@ def test_generate_jenkins():
 
 
 def test_generate_gitlab():
-
+    """Validate generated GitLab values."""
     for project in PROJECTS:
         g = Generator(
             PROJECTS[project]['project'],
@@ -229,5 +233,6 @@ def test_generate_gitlab():
 
 
 def test_generate_app_property():
+    """Validate deprecated property."""
     g = Generator('project', 'repo')
     assert g.app == 'repoproject'
