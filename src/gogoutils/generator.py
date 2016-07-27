@@ -1,3 +1,4 @@
+import logging
 from gogoutils.formats import Formats
 
 
@@ -32,6 +33,11 @@ class Generator(object):
             'env': params.get('env').lower(),
         }
         self.data.update(self.format.get_formats())
+
+    @property
+    def app(self):
+        logging.warning('Deprecated: Use Generator.app_name() instead')
+        return self.app_name()
 
     def app_name(self):
         """Generate application name"""

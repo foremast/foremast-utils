@@ -226,3 +226,8 @@ def test_generate_gitlab():
         assert git_main == g.gitlab()['main']
         assert git_qe == g.gitlab()['qe']
         assert git_config == g.gitlab()['config']
+
+
+def test_generate_app_property():
+    g = Generator('project', 'repo')
+    assert g.app == 'repoproject'
