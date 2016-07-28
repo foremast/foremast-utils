@@ -228,6 +228,9 @@ def test_generate_gitlab():
         assert git_config == g.gitlab()['config']
 
 
-def test_generate_app_property():
+def test_generate_properties():
     g = Generator('project', 'repo')
     assert g.app == 'repoproject'
+    assert g.project == 'project'
+    assert g.repo == 'repo'
+    assert g.env == 'dev'

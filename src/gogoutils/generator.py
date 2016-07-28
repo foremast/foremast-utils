@@ -36,8 +36,24 @@ class Generator(object):
 
     @property
     def app(self):
+        """Return the generated app name."""
         logging.warning('Deprecated: Use Generator.app_name() instead')
         return self.app_name()
+
+    @property
+    def project(self):
+        """Return the project property"""
+        return self.data['project']
+
+    @property
+    def repo(self):
+        """Return the repo property"""
+        return self.data['repo']
+
+    @property
+    def env(self):
+        """Return the env property"""
+        return self.data['env']
 
     def app_name(self):
         """Generate application name"""
