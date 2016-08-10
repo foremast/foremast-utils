@@ -8,10 +8,10 @@ Add the following to `~/.pypirc` file
 ```
 [distutils]
 index-servers =
-    gogo
+    pypi
 
-[gogo]
-repository = https://pypi.example.com
+[pypi]
+repository = https://pypi.python.org/pypi
 username = username
 password = xxxyyyzzz
 ```
@@ -25,5 +25,5 @@ When releasing a new version, the following needs to occur
 
 Once that is taken care of, execute the following:
 ```
-$ python setup.py sdist upload -r gogo
+$ python setup.py sdist bdist_wheel upload
 ```
