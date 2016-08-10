@@ -19,8 +19,8 @@ from setuptools import find_packages, setup
 setup(
     name='gogo-utils',
     version='1.1',
-    description='A utility library used by various internal tools.',
-    long_description=open('README.md').read(),
+    description='A utility library that generates service name convention details based on a repo url.',
+    long_description=open('README.rst').read(),
     author='Sijis Aviles',
     author_email='saviles@gogoair.com',
     packages=find_packages(where='src'),
