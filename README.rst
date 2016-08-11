@@ -1,3 +1,6 @@
+.. image:: https://travis-ci.org/gogoair/gogo-utils.svg?branch=master
+    :target: https://travis-ci.org/gogoair/gogo-utils
+
 Gogo-utils
 ==========
 
