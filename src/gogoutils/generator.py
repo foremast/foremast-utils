@@ -95,6 +95,11 @@ class Generator(object):
 
         return dns
 
+    def s3_app_bucket(self):
+        """Generates s3 application bucket name."""
+        s3_app_bucket = self.format['s3_app_bucket'].format(**self.data)
+        return s3_app_bucket
+
     def iam(self):
         """Generate iam details"""
         iam_base_name = self.format['iam_base'].format(**self.data)
