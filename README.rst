@@ -80,6 +80,7 @@ These are the services you can customize the formats along with their default fo
     s3_bucket,archaius-{env},S3 archaius bucket name
     s3_bucket_path,{project}/{repo}{project},S3 path for app (within s3_bucket)
     s3_archaius_name,archaius-{env}/{project}/{repo}{project}/,S3 full path for archaius
+    s3_app_bucket,{project}-{repo},Application specific S3 bucket name
     jenkins_job_name,{project}_{repo},Jenkins job name
     git_repo,{raw_project}/{raw_repo},Apps git repo
     git_repo_qe,{raw_project}/{raw_repo}-qa,QA's git repo

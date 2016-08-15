@@ -32,7 +32,7 @@ DEFAULT_FORMAT = {
     'iam_policy': '{project}_{repo}_policy',
     'iam_profile': '{project}_{repo}_profile',
     's3_bucket': 'archaius-{env}',
-    's3_application_bucket': '{project}_{repo}_bucket',
+    's3_app_bucket': '{project}-{repo}',
     's3_bucket_path': '{project}/{repo}{project}',
     's3_archaius_name': 'archaius-{env}/{project}/{repo}{project}/',
     'jenkins_job_name': '{project}_{repo}',

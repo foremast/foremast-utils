@@ -255,3 +255,21 @@ def test_generate_properties():
     assert g.project == 'project'
     assert g.repo == 'repo'
     assert g.env == 'dev'
+
+
+def test_s3_bucket_format():
+    """Validates generated s3 bucket name"""
+    for project in PROJECTS:
+
+        g = Generator(
+            PROJECTS[project]['project'],
+            PROJECTS[project]['repo'],
+            PROJECTS[project]['env'],
+        )
+
+        bucket = '{1}-{0}'.format(
+            PROJECTS[project]['repo'],
+            PROJECTS[project]['project'],
+        )
+
+        assert bucket == g.s3_app_bucket()
