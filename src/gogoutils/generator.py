@@ -140,3 +140,11 @@ class Generator(object):
                'config': config_name}
 
         return git
+
+    def apigateway(self):
+        """Generate apigateway details"""
+        domain = self.format['apigateway_domain'].format(**self.data)
+
+        return {
+            'domain': domain,
+        }

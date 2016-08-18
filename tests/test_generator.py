@@ -273,3 +273,19 @@ def test_s3_bucket_format():
         )
 
         assert bucket == g.s3_app_bucket()
+
+
+def test_apigateway_domain():
+    """Validate apigateway domain generator"""
+    for project in PROJECTS:
+
+        g = Generator(
+            PROJECTS[project]['project'],
+            PROJECTS[project]['repo'],
+            PROJECTS[project]['env'],
+        )
+
+        domain = 'api.{0}.example.com'.format(
+            PROJECTS[project]['env'],
+        )
+        assert domain == g.apigateway()['domain']
