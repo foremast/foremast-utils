@@ -39,6 +39,7 @@ DEFAULT_FORMAT = {
     'git_repo': '{raw_project}/{raw_repo}',
     'git_repo_qe': '{raw_project}/{raw_repo}-qa',
     'git_repo_configs': '{raw_project}/{raw_repo}-config',
+    'apigateway_domain': 'api.{env}.{domain}',
 }
 
 
