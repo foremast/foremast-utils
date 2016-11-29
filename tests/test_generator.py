@@ -125,6 +125,7 @@ def test_generate_dns():
             PROJECTS[project]['project'],
             PROJECTS[project]['repo'],
             PROJECTS[project]['env'],
+            PROJECTS[project]['region'],
         )
 
         dns = '{0}.{1}.{2}.example.com'.format(
