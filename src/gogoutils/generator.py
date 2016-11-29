@@ -79,17 +79,17 @@ class Generator(object):
         return app
 
     def dns_elb(self):
-        """Generate dns domain"""
+        """Generate elb dns domain"""
         dns = self.format['dns_elb'].format(**self.data)
         return dns
 
     def dns_elb_region(self):
-        """Generate dns domain"""
+        """Generate dns domain with region"""
         dns = self.format['dns_elb_region'].format(**self.data)
         return dns
 
     def dns_noregion(self):
-        """Generate dns domain"""
+        """Generate dns domain with no region"""
         dns = self.format['dns_noregion'].format(**self.data)
         return dns
 
