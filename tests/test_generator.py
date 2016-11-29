@@ -24,21 +24,25 @@ PROJECTS = {
         'project': 'gogoair',
         'repo': 'test',
         'env': 'dev',
+        'region': 'us-west-2',
     },
     'repo2': {
         'project': 'gogoair',
         'repo': 'test',
         'env': 'stage',
+        'region': 'us-east-1',
     },
     'repo3': {
         'project': 'project1',
         'repo': 'repo1',
         'env': 'env1',
+        'region': 'us-west-1',
     },
     'repo4': {
         'project': 'gogoair.test',
         'repo': 'unknown',
         'env': 'stage',
+        'region': 'us-west-2',
     },
 }
 
@@ -129,12 +133,20 @@ def test_generate_dns():
             PROJECTS[project]['env'],
         )
 
+        dns_withregion = '{0}.{1}.{2}.{3}.example.com'.format(
+            PROJECTS[project]['repo'],
+            PROJECTS[project]['project'],
+            PROJECTS[project]['region'],
+            PROJECTS[project]['env'],
+
+        )
         instance = '{0}{1}-xx.{2}.example.com'.format(
             PROJECTS[project]['repo'],
             PROJECTS[project]['project'],
             PROJECTS[project]['env'],
         )
         assert dns == g.dns()['elb']
+        assert dns_withregion == g.dns()['elb_region']
         assert instance == g.dns()['instance']
 
 

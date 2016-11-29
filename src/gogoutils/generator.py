@@ -25,12 +25,13 @@ class GeneratorError(Exception):
 class Generator(object):
     """Generates application details"""
 
-    def __init__(self, project, repo, env='dev', formats={}):
+    def __init__(self, project, repo, env='dev', region='us-east-1', formats={}):
 
         params = {
             'project': project,
             'repo': repo,
             'env': env,
+            'region': region
         }
 
         for param, value in params.items():
@@ -47,6 +48,7 @@ class Generator(object):
             'raw_project': params.get('project'),
             'raw_repo': params.get('repo'),
             'env': params.get('env').lower(),
+            'region': params.get('region').lower(),
         }
         self.data.update(self.format.get_formats())
 
@@ -81,6 +83,16 @@ class Generator(object):
         dns = self.format['dns_elb'].format(**self.data)
         return dns
 
+    def dns_elb_region(self):
+        """Generate dns domain"""
+        dns = self.format['dns_elb_region'].format(**self.data)
+        return dns
+
+    def dns_noregion(self):
+        """Generate dns domain"""
+        dns = self.format['dns_noregion'].format(**self.data)
+        return dns
+
     def dns_instance(self):
         """Generate dns instance"""
         instance = self.format['dns_instance'].format(**self.data)
@@ -90,6 +102,8 @@ class Generator(object):
         """Combined dns details"""
         dns = {
             'elb': self.dns_elb(),
+            'elb_region': self.dns_elb_region(),
+            'no_region': self.dns_noregion(),
             'instance': self.dns_instance(),
         }
 
