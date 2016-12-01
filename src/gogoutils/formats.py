@@ -25,7 +25,7 @@ DEFAULT_FORMAT = {
     'app': '{repo}{project}',
     'dns_elb': '{repo}.{project}.{env}.{domain}',
     'dns_elb_region': '{repo}.{project}.{region}.{env}.{domain}',
-    'dns_noregion': '{repo}.{project}.{env}.{domain}',
+    'dns_global': '{repo}.{project}.{env}.{domain}',
     'dns_instance': '{repo}{project}-xx.{env}.{domain}',
     'iam_base': '{project}_{repo}',
     'iam_user': '{project}_{repo}',

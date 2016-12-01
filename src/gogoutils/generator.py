@@ -88,9 +88,9 @@ class Generator(object):
         dns = self.format['dns_elb_region'].format(**self.data)
         return dns
 
-    def dns_noregion(self):
-        """Generate dns domain with no region"""
-        dns = self.format['dns_noregion'].format(**self.data)
+    def dns_global(self):
+        """Generate dns global domain with no region"""
+        dns = self.format['dns_global'].format(**self.data)
         return dns
 
     def dns_instance(self):
@@ -103,7 +103,7 @@ class Generator(object):
         dns = {
             'elb': self.dns_elb(),
             'elb_region': self.dns_elb_region(),
-            'no_region': self.dns_noregion(),
+            'global': self.dns_noregion(),
             'instance': self.dns_instance(),
         }
 
