@@ -209,12 +209,14 @@ def test_generate_iam():
         )
 
         iam_group = PROJECTS[project]['project']
+        iam_lambda_role = '{0}_lambda_role'.format(iam_base)
         iam_policy = '{0}_policy'.format(iam_base)
         iam_profile = '{0}_profile'.format(iam_base)
         iam_role = '{0}_role'.format(iam_base)
         iam_user = iam_base
 
         assert iam_group == g.iam()['group']
+        assert iam_lambda_role == g.iam()['lambda_role']
         assert iam_policy == g.iam()['policy']
         assert iam_profile == g.iam()['profile']
         assert iam_role == g.iam()['role']
