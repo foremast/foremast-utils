@@ -31,14 +31,12 @@ class Generator(object):
             'project': project,
             'repo': repo,
             'env': env,
-            'region': region
+            'region': region,
         }
 
         for param, value in params.items():
             if not value:
-                error = '"{0}" parameter may not be None or empty'.format(
-                    param,
-                )
+                error = '"{0}" parameter may not be None or empty'.format(param)
                 raise GeneratorError(error)
 
         self.format = Formats(formats)
@@ -118,11 +116,13 @@ class Generator(object):
         """Generate iam details"""
         iam_base_name = self.format['iam_base'].format(**self.data)
 
-        iam = {'user': self.format['iam_user'].format(**self.data),
-               'group': self.format['iam_group'].format(**self.data),
-               'role': self.format['iam_role'].format(**self.data),
-               'policy': self.format['iam_policy'].format(**self.data),
-               'profile': self.format['iam_profile'].format(**self.data)}
+        iam = {
+            'group': self.format['iam_group'].format(**self.data),
+            'policy': self.format['iam_policy'].format(**self.data),
+            'profile': self.format['iam_profile'].format(**self.data),
+            'role': self.format['iam_role'].format(**self.data),
+            'user': self.format['iam_user'].format(**self.data),
+        }
 
         return iam
 
@@ -149,9 +149,11 @@ class Generator(object):
         qe_name = self.format['git_repo_qe'].format(**self.data)
         config_name = self.format['git_repo_configs'].format(**self.data)
 
-        git = {'main': main_name,
-               'qe': qe_name,
-               'config': config_name}
+        git = {
+            'config': config_name,
+            'main': main_name,
+            'qe': qe_name,
+        }
 
         return git
 
