@@ -118,6 +118,7 @@ class Generator(object):
 
         iam = {
             'group': self.format['iam_group'].format(**self.data),
+            'lambda_role': self.format['iam_lambda_role'].format(**self.data),
             'policy': self.format['iam_policy'].format(**self.data),
             'profile': self.format['iam_profile'].format(**self.data),
             'role': self.format['iam_role'].format(**self.data),
