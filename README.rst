@@ -77,6 +77,7 @@ These are the services you can customize the formats along with their default fo
     git_repo,{raw_project}/{raw_repo},Apps git repo
     iam_base,{project}_{repo},IAM profile base
     iam_group,{project},IAM group name
+    iam_lambda_role,{project}_{repo}_lambda_role,Lambda IAM role name
     iam_policy,{project}_{repo}_policy,IAM policy name
     iam_profile,{project}_{repo}_profile,IAM profile name
     iam_role,{project}_{repo}_role,IAM role name
