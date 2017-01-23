@@ -32,7 +32,7 @@ DEFAULT_FORMAT = {
     'git_repo': '{raw_project}/{raw_repo}',
     'iam_base': '{project}_{repo}',
     'iam_group': '{project}',
-    'iam_lambda_role': '{project}_{repo}_lambda_role',
+    'iam_lambda_role': '{project}_{repo}_role',
     'iam_policy': '{project}_{repo}_policy',
     'iam_profile': '{project}_{repo}_profile',
     'iam_role': '{project}_{repo}_role',
