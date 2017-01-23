@@ -209,7 +209,7 @@ def test_generate_iam():
         )
 
         iam_group = PROJECTS[project]['project']
-        iam_lambda_role = '{0}_lambda_role'.format(iam_base)
+        iam_lambda_role = '{0}_role'.format(iam_base)
         iam_policy = '{0}_policy'.format(iam_base)
         iam_profile = '{0}_profile'.format(iam_base)
         iam_role = '{0}_role'.format(iam_base)
