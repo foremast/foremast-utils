@@ -91,6 +91,11 @@ class Generator(object):
         dns = self.format['dns_global'].format(**self.data)
         return dns
 
+    def dns_region(self):
+        """Generate region specific DNS"""
+        dns = self.format['dns_region'].format(**self.data)
+        return dns
+
     def dns_instance(self):
         """Generate dns instance"""
         instance = self.format['dns_instance'].format(**self.data)
