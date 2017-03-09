@@ -107,6 +107,7 @@ class Generator(object):
             'elb': self.dns_elb(),
             'elb_region': self.dns_elb_region(),
             'global': self.dns_global(),
+            'region': self.dns_region(),
             'instance': self.dns_instance(),
         }
 
