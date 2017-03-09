@@ -148,6 +148,7 @@ def test_generate_dns():
         )
         assert dns == g.dns()['elb']
         assert dns_withregion == g.dns()['elb_region']
+        assert dns_withregion == g.dns()['dns_region']
         assert instance == g.dns()['instance']
 
 
