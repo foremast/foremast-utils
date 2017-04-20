@@ -288,7 +288,13 @@ def test_s3_bucket_format():
             PROJECTS[project]['project'],
         )
 
+        shared_bucket = 'common-{1}-{0}'.format(
+            PROJECTS[project]['repo'],
+            PROJECTS[project]['project'],
+        )
+
         assert bucket == g.s3_app_bucket()
+        assert shared_bucket == g.shared_s3_app_bucket()
 
 
 def test_apigateway_domain():

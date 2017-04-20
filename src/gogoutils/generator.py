@@ -118,6 +118,11 @@ class Generator(object):
         s3_app_bucket = self.format['s3_app_bucket'].format(**self.data)
         return s3_app_bucket
 
+    def shared_s3_app_bucket(self):
+        """Generates shared s3 application bucket name."""
+        shared_s3_app_bucket = self.format['shared_s3_app_bucket'].format(**self.data)
+        return shared_s3_app_bucket
+
     def iam(self):
         """Generate iam details"""
         iam_base_name = self.format['iam_base'].format(**self.data)
