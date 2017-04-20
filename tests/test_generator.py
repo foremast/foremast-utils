@@ -288,8 +288,7 @@ def test_s3_bucket_format():
             PROJECTS[project]['project'],
         )
 
-        shared_bucket = 'common-{1}-{0}'.format(
-            PROJECTS[project]['repo'],
+        shared_bucket = 'common-{0}'.format(
             PROJECTS[project]['project'],
         )
 
