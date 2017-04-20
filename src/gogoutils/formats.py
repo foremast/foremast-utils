@@ -40,6 +40,7 @@ DEFAULT_FORMAT = {
     'iam_user': '{project}_{repo}',
     'jenkins_job_name': '{project}_{repo}',
     's3_app_bucket': '{project}-{repo}',
+    'shared_s3_app_bucket': 'common-{project}-{repo}',
     's3_archaius_name': 'archaius-{env}/{project}/{repo}{project}/',
     's3_bucket_path': '{project}/{repo}{project}',
     's3_bucket': 'archaius-{env}',
