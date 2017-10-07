@@ -46,6 +46,9 @@ class Parser(object):
             url = url.split(':')[1]
 
         # Ony capture last two list items
-        project, repo = url.split('/')[-2:]
+        try:
+            project, repo = url.split('/')[-2:]
+        except ValueError:
+            raise ParserError('"{}" is not a valid repository URL.'.format(self.url))
 
         return project, repo
