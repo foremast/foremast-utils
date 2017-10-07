@@ -69,6 +69,12 @@ def test_parser_case_url():
         assert repo == 'Test-config'
 
 
+def test_parser_invalid_url():
+    """Test url is valid when parsed"""
+    with pytest.raises(ParserError):
+        project, repo = Parser('https://github.com').parse_url()
+
+
 def test_empty_params():
     urls = [
         None,
