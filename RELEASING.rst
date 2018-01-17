@@ -29,4 +29,4 @@ Once that is taken care of, execute the following:
 
 .. code:: sh
 
-    $ python setup.py sdist bdist_wheel upload
+    $ python setup.py bdist_wheel upload
