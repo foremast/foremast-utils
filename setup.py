@@ -18,7 +18,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='gogo-utils',
-    version='1.8.1',
+    version='1.8.2',
     description='A utility library that generates service name convention details based on a repo url.',
     long_description=open('README.rst').read(),
     author='Sijis Aviles',
