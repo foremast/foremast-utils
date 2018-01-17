@@ -18,7 +18,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='gogo-utils',
-    version='1.8',
+    version='1.8.1',
     description='A utility library that generates service name convention details based on a repo url.',
     long_description=open('README.rst').read(),
     author='Sijis Aviles',
@@ -37,6 +37,7 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
         'License :: OSI Approved :: Apache Software License',
         'Operating System :: OS Independent',
     ],
