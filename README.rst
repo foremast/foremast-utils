@@ -97,7 +97,7 @@ We encourage contributions, feedback and any bug fixes.
 Running Tests
 -------------
 
-Running tests are very quick and easy when using tox. We validate against python 2.7, 3.4 and 3.5.
+Running tests are very quick and easy when using tox. We validate against python 2.7 and 3.4+
 
 To run the tests simply execute
 
