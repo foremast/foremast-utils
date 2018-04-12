@@ -291,7 +291,7 @@ def test_s3_bucket_format():
         region_bucket = '{1}-{0}-{2}'.format(
             PROJECTS[project]['repo'],
             PROJECTS[project]['project'],
-            PROJECTS[project['region']
+            PROJECTS[project]['region']
         )
 
         shared_bucket = 'common-{0}'.format(
