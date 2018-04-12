@@ -113,14 +113,28 @@ class Generator(object):
 
         return dns
 
-    def s3_app_bucket(self):
-        """Generates s3 application bucket name."""
-        s3_app_bucket = self.format['s3_app_bucket'].format(**self.data)
+    def s3_app_bucket(self, include_region=True):
+        """Generates s3 application bucket name.
+
+        Args;
+            include_region (bool): If to include region in the name generation.
+        """
+        if include_region:
+            s3_app_bucket = self.format['s3_app_region_bucket'].format(**self.data)
+        else:
+            s3_app_bucket = self.format['s3_app_bucket'].format(**self.data)
         return s3_app_bucket
 
-    def shared_s3_app_bucket(self):
-        """Generates shared s3 application bucket name."""
-        shared_s3_app_bucket = self.format['shared_s3_app_bucket'].format(**self.data)
+    def shared_s3_app_bucket(self, include_region=True):
+        """Generates shared s3 application bucket name.
+
+        Args;
+            include_region (bool): If to include region in the name generation.
+        """
+        if include_region:
+            shared_s3_app_bucket = self.format['shared_s3_app_region_bucket'].format(**self.data)
+        else:
+            shared_s3_app_bucket = self.format['shared_s3_app_bucket'].format(**self.data)
         return shared_s3_app_bucket
 
     def iam(self):
