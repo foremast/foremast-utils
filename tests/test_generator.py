@@ -281,19 +281,31 @@ def test_s3_bucket_format():
             PROJECTS[project]['project'],
             PROJECTS[project]['repo'],
             PROJECTS[project]['env'],
+            region=PROJECTS[project]['region']
         )
 
         bucket = '{1}-{0}'.format(
             PROJECTS[project]['repo'],
             PROJECTS[project]['project'],
         )
+        region_bucket = '{1}-{0}-{2}'.format(
+            PROJECTS[project]['repo'],
+            PROJECTS[project]['project'],
+            PROJECTS[project['region']
+        )
 
         shared_bucket = 'common-{0}'.format(
             PROJECTS[project]['project'],
         )
+        region_shared_bucket = 'common-{0}-{1}'.format(
+            PROJECTS[project]['project'],
+            PROJECTS[project['region']
+        )
 
         assert bucket == g.s3_app_bucket()
+        assert region_bucket = g.s3_app_bucket(include_region=True)
         assert shared_bucket == g.shared_s3_app_bucket()
+        assert region_shared_bucket == g.shared_s3_app_bucket(include_region=True)
 
 
 def test_apigateway_domain():
