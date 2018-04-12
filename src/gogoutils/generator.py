@@ -113,7 +113,7 @@ class Generator(object):
 
         return dns
 
-    def s3_app_bucket(self, include_region=True):
+    def s3_app_bucket(self, include_region=False):
         """Generates s3 application bucket name.
 
         Args;
@@ -125,7 +125,7 @@ class Generator(object):
             s3_app_bucket = self.format['s3_app_bucket'].format(**self.data)
         return s3_app_bucket
 
-    def shared_s3_app_bucket(self, include_region=True):
+    def shared_s3_app_bucket(self, include_region=False):
         """Generates shared s3 application bucket name.
 
         Args;
