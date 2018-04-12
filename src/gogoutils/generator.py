@@ -116,7 +116,7 @@ class Generator(object):
     def s3_app_bucket(self, include_region=False):
         """Generates s3 application bucket name.
 
-        Args;
+        Args:
             include_region (bool): If to include region in the name generation.
         """
         if include_region:
@@ -128,7 +128,7 @@ class Generator(object):
     def shared_s3_app_bucket(self, include_region=False):
         """Generates shared s3 application bucket name.
 
-        Args;
+        Args:
             include_region (bool): If to include region in the name generation.
         """
         if include_region:
