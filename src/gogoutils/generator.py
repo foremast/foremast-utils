@@ -117,7 +117,7 @@ class Generator(object):
         """Generates s3 application bucket name.
 
         Args:
-            include_region (bool): If to include region in the name generation.
+            include_region (bool): Include region in the name generation.
         """
         if include_region:
             s3_app_bucket = self.format['s3_app_region_bucket'].format(**self.data)
@@ -129,7 +129,7 @@ class Generator(object):
         """Generates shared s3 application bucket name.
 
         Args:
-            include_region (bool): If to include region in the name generation.
+            include_region (bool): Include region in the name generation.
         """
         if include_region:
             shared_s3_app_bucket = self.format['shared_s3_app_region_bucket'].format(**self.data)
