@@ -303,7 +303,7 @@ def test_s3_bucket_format():
         )
 
         assert bucket == g.s3_app_bucket()
-        assert region_bucket = g.s3_app_bucket(include_region=True)
+        assert region_bucket == g.s3_app_bucket(include_region=True)
         assert shared_bucket == g.shared_s3_app_bucket()
         assert region_shared_bucket == g.shared_s3_app_bucket(include_region=True)
 
