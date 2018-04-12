@@ -84,6 +84,9 @@ These are the services you can customize the formats along with their default fo
     iam_user,{project}_{repo},IAM username
     jenkins_job_name,{project}_{repo},Jenkins job name
     s3_app_bucket,{project}-{repo},Application specific S3 bucket name
+    s3_app_region_bucket,{project}-{repo}-{region},Application specific S3 bucket name with region
+    shared_s3_app_bucket,common-{project},S3 bucket name for shared buckets
+    shared_s3_app_region_bucket,common-{project}-{region},S3 bucket name for shared buckets with region
     s3_archaius_name,archaius-{env}/{project}/{repo}{project}/,S3 full path for archaius
     s3_bucket_path,{project}/{repo}{project},S3 path for app (within s3_bucket)
     s3_bucket,archaius-{env},S3 archaius bucket name
