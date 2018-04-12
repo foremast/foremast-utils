@@ -299,7 +299,7 @@ def test_s3_bucket_format():
         )
         region_shared_bucket = 'common-{0}-{1}'.format(
             PROJECTS[project]['project'],
-            PROJECTS[project['region']
+            PROJECTS[project]['region']
         )
 
         assert bucket == g.s3_app_bucket()
