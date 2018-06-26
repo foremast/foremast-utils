@@ -19,6 +19,7 @@ it may need.
     my_formats = {
         'jenkins_job_name': '{project}-{repo}-master',
         'app': 'app-{project}{repo}',
+        'custom': '{project}*.*{repo}',
     }
 
     info = Generator(project, repo, 'dev', formats=my_formats)
@@ -28,6 +29,9 @@ it may need.
 
     info.app_name()
     > app-gogoairtest
+
+    info.custom
+    > gogoair*.*test
 
 
 Classes
