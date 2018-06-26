@@ -50,6 +50,10 @@ class Generator(object):
         }
         self.data.update(self.format.get_formats())
 
+    def __getattr__(self, name):
+        """Return formatted string from :attr:`format`."""
+        return self.data[name].format(**self.data)
+
     @property
     def app(self):
         """Return the generated app name."""
