@@ -322,3 +322,59 @@ def test_apigateway_domain():
             PROJECTS[project]['env'],
         )
         assert domain == g.apigateway()['domain']
+
+
+@pytest.mark.parametrize('formats, expected', [
+    (
+        {
+            'test': '{project}|{repo}'
+        },
+        'gogoair|test',
+    ),
+    (
+        {
+            'test': '{project}|{repo}-{special}',
+            'special': 'pretty',
+        },
+        'gogoair|test-pretty',
+    ),
+])
+def test_autoformat_attr(formats, expected):
+    """Validate unknown attributes are formatted."""
+    p = PROJECTS['repo1']
+
+    g = Generator(
+        p['project'],
+        p['repo'],
+        env=p['env'],
+        region=p['region'],
+        formats=formats,
+    )
+
+    assert g.test == expected
+
+
+class CustomFormatting(str):
+    """Custom string formatter."""
+
+    def format(self, *args, **kwargs):
+        """Override default format method."""
+        custom = kwargs['repo'].replace(' ', '--').upper()
+        return super(CustomFormatting, self).format(*args, custom=custom, **kwargs)
+
+
+def test_format_method():
+    """Objects with :meth:`format` should string format correctly."""
+    formats = {
+        'test': CustomFormatting('{region}-{custom}+{project}'),
+    }
+
+    g = Generator(
+        'project',
+        'has an apple',
+        env='home',
+        region='Uruguay',
+        formats=formats,
+    )
+
+    assert g.test == 'uruguay-HAS--AN--APPLE+project'
