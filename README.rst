@@ -1,5 +1,5 @@
-.. image:: https://travis-ci.org/gogoair/gogo-utils.svg?branch=master
-    :target: https://travis-ci.org/gogoair/gogo-utils
+.. image:: https://travis-ci.org/foremast/gogo-utils.svg?branch=master
+    :target: https://travis-ci.org/foremast/gogo-utils
 
 Gogo-utils
 ==========
