@@ -21,13 +21,13 @@ from gogoutils.generator import Generator, GeneratorError
 
 PROJECTS = {
     'repo1': {
-        'project': 'gogoair',
+        'project': 'foremast',
         'repo': 'test',
         'env': 'dev',
         'region': 'us-west-2',
     },
     'repo2': {
-        'project': 'gogoair',
+        'project': 'foremast',
         'repo': 'test',
         'env': 'stage',
         'region': 'us-east-1',
@@ -39,7 +39,7 @@ PROJECTS = {
         'region': 'us-west-1',
     },
     'repo4': {
-        'project': 'gogoair.test',
+        'project': 'foremast.test',
         'repo': 'unknown',
         'env': 'stage',
         'region': 'us-west-2',
@@ -48,11 +48,11 @@ PROJECTS = {
 
 ERROR_PROJECTS = {
     'repo1': {
-        'project': 'gogoair',
+        'project': 'foremast',
         'repo': 'test',
     },
     'repo2': {
-        'project': 'gogoair',
+        'project': 'foremast',
         'env': 'stage',
     },
     'repo3': {
@@ -68,7 +68,7 @@ ERROR_PROJECTS = {
 def test_default_env():
     """Validate defaults."""
     project = {
-        'project': 'gogoair',
+        'project': 'foremast',
         'repo': 'no_env',
     }
 
@@ -105,15 +105,15 @@ def test_empty_params():
 
 def test_camel_cases():
     """Validate Application name is lowercase."""
-    app_name = 'Testgogoair'
-    g = Generator('gogoair', 'Test')
+    app_name = 'Testforemast'
+    g = Generator('foremast', 'Test')
     assert app_name.lower() == g.app_name()
 
 
 def test_valid_camel_cases():
     """Validate case sensitivity for Git repository names."""
-    repo_name = 'gogoair/Test-config'
-    g = Generator('gogoair', 'Test-config')
+    repo_name = 'foremast/Test-config'
+    g = Generator('foremast', 'Test-config')
     uri_dict = g.gitlab()
     assert repo_name == uri_dict['main']
 
@@ -329,14 +329,14 @@ def test_apigateway_domain():
         {
             'test': '{project}|{repo}'
         },
-        'gogoair|test',
+        'foremast|test',
     ),
     (
         {
             'test': '{project}|{repo}-{special}',
             'special': 'pretty',
         },
-        'gogoair|test-pretty',
+        'foremast|test-pretty',
     ),
 ])
 def test_autoformat_attr(formats, expected):

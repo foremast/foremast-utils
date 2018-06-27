@@ -22,50 +22,50 @@ def test_parser_url():
     """Test parsing of url"""
 
     urls = [
-        'http://github.com/gogoair/test',
-        'https://github.com/gogoair/test',
-        'http://github.com/gogoair/test.git',
-        'https://github.com/gogoair/test.git',
-        'https://username@testgithub.com/gogoair/test.git',
-        'git@github.com:gogoair/test.git',
-        'git://git@github.com/gogoair/test.git',
-        'file:///opt/git/gogoair/test.git',
-        'ssh://git@github.com/gogoair/test.git',
-        '/gogoair/test.git',
-        '/var/opt/gitlab/git-data/repositories/gogoair/test.git',
-        'gogoair/Test.git',
-        'http://GIT.example.com/gogoair/tEst.git',
-        'https://git.GIThub.com/gogoair/teST.giT',
-        'HTTPS://username@Testgithub.com/gogoair/test.git',
+        'http://github.com/foremast/test',
+        'https://github.com/foremast/test',
+        'http://github.com/foremast/test.git',
+        'https://github.com/foremast/test.git',
+        'https://username@testgithub.com/foremast/test.git',
+        'git@github.com:foremast/test.git',
+        'git://git@github.com/foremast/test.git',
+        'file:///opt/git/foremast/test.git',
+        'ssh://git@github.com/foremast/test.git',
+        '/foremast/test.git',
+        '/var/opt/gitlab/git-data/repositories/foremast/test.git',
+        'foremast/Test.git',
+        'http://GIT.example.com/foremast/tEst.git',
+        'https://git.GIThub.com/foremast/teST.giT',
+        'HTTPS://username@Testgithub.com/foremast/test.git',
     ]
 
     for url in urls:
         project, repo = Parser(url).parse_url()
-        assert project == 'gogoair'
+        assert project == 'foremast'
         assert repo == 'test'
 
 
 def test_parser_case_url():
     """Test parsing of url with case sensitive urls"""
     urls = [
-        'http://github.com/gogoair/Test-config',
-        'https://github.com/gogoair/Test-config',
-        'http://github.com/gogoair/Test-config.git',
-        'https://github.com/gogoair/Test-config.git',
-        'https://username@testgithub.com/gogoair/Test-config.git',
-        'git@github.com:gogoair/Test-config.git',
-        'git://git@github.com/gogoair/Test-config.git',
-        'file:///opt/git/gogoair/Test-config.git',
-        'ssh://git@github.com/gogoair/Test-config.git',
-        '/gogoair/Test-config.git',
-        '/var/opt/gitlab/git-data/repositories/gogoair/Test-config.git',
-        'gogoair/Test-config.git',
-        'HTTPS://username@Testgithub.com/gogoair/Test-config.git',
+        'http://github.com/foremast/Test-config',
+        'https://github.com/foremast/Test-config',
+        'http://github.com/foremast/Test-config.git',
+        'https://github.com/foremast/Test-config.git',
+        'https://username@testgithub.com/foremast/Test-config.git',
+        'git@github.com:foremast/Test-config.git',
+        'git://git@github.com/foremast/Test-config.git',
+        'file:///opt/git/foremast/Test-config.git',
+        'ssh://git@github.com/foremast/Test-config.git',
+        '/foremast/Test-config.git',
+        '/var/opt/gitlab/git-data/repositories/foremast/Test-config.git',
+        'foremast/Test-config.git',
+        'HTTPS://username@Testgithub.com/foremast/Test-config.git',
     ]
 
     for url in urls:
         project, repo = Parser(url, lower=False).parse_url()
-        assert project == 'gogoair'
+        assert project == 'foremast'
         assert repo == 'Test-config'
 
 

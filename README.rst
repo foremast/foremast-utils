@@ -12,7 +12,7 @@ it may need.
 
     from gogoutils import Parser, Generator
 
-    url = 'https://github.com/gogoair/test.git'
+    url = 'https://github.com/foremast/test.git'
     project, repo = Parser(url).parse_url()
 
     # a way to customize based on your conventions
@@ -25,13 +25,13 @@ it may need.
     info = Generator(project, repo, 'dev', formats=my_formats)
 
     info.jenkins()
-    > {'name': 'gogoair-test-master'}
+    > {'name': 'foremast-test-master'}
 
     info.app_name()
-    > app-gogoairtest
+    > app-foremasttest
 
     info.custom
-    > gogoair*.*test
+    > foremast*.*test
 
 
 Classes
