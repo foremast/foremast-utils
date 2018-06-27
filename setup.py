@@ -27,8 +27,8 @@ setup(
     package_dir={'': 'src'},
     install_requires=[],
     keywords="gogo python",
-    url='https://github.com/gogoair/gogo-utils',
-    download_url='https://github.com/gogoair/gogo-utils',
+    url='https://github.com/foremast/gogo-utils',
+    download_url='https://github.com/foremast/gogo-utils',
     platforms=['OS Independent'],
     license='Apache License (2.0)',
     classifiers=[
