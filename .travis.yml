@@ -1,22 +1,35 @@
 sudo: false
 language: python
 cache: false
-
 matrix:
   include:
-    - python: 2.7
-      env: TOXENV=py27
-    - python: 3.4
-      env: TOXENV=py34
-    - python: 3.5
-      env: TOXENV=py35
-    - python: 3.6
-      env: TOXENV=py36
-    - python: 3.6
-      env: TOXENV=lint
-
+  - python: 2.7
+    env: TOXENV=py27
+  - python: 3.4
+    env: TOXENV=py34
+  - python: 3.5
+    env: TOXENV=py35
+  - python: 3.6
+    env: TOXENV=py36
+  - python: 3.6
+    env: TOXENV=lint
 install:
-  - pip install -r requirements-dev.txt
-
+- pip install -r requirements-dev.txt
 script:
-  - tox -e $TOXENV
+- tox -e $TOXENV
+deploy:
+- provider: pypi
+  user: foremast-deployer
+  password:
+    secure: PPw0WkNdB8e4Z8u4zOlLSLychzoBETuyh0oSvGmE33xkMO4mxm46CqcfRnTsqCNWHwQkZKPsJ48Dngd1Q791KhSosEQLSZOktmy4Eu+Cf6srW0vDYK4tr9zSi+E+DboUhSqu8s9C2F9gUWnloKSx0xYS18QUsSbqWIjkT650STR34mnuT+ub5nHCjSKR4IRMU6zaO0pJxns8t9gA+l87WNrt/19bb2zW0Q0lejuWODeUvpHXp98KYxx83ni8RqzJHNHcqftDhfLMcPYHVWrY7zbhURUyj0Zy+pbRs/rTaP0ithjP5DTa0WDSLqf3UHKEqIuGQAaQL1hHBm+AAr2oOHl5DG0bvYW6XvkNdAgEeTtPbq3YRc4MoHCWEHEgHFInG3KmAMHyi2HS6bUrjEVcoHSyJv0WhzqjFBD5A75xVjBaMU/tYqddKYoRnOC8HuXgCINmSkUYLH8Z3reCBlHsbi3wPY2yqbeJX/yqZMnMg0pq3wQds6po8vtkMRQ2UnBnjLU3uQ1UBSDsRXJg3m+u8hYny9WVVa8a9AkZd5tF5yZGUGXCIP1f4TRI1/I45HW2axZM1KblpPuoW8B/LKOpp20WzfPn0Dzv3usFRarOsYut1tNKHnLn7GIyHquU9jVd90PV0f1P73p4BwXpxlDoQ8uEmKTLs/ACay0EEvIeuIo=
+  distributions: bdist_wheel
+  on:
+    condition: $TOXENV = lint
+- provider: pypi
+  user: foremast-deployer
+  password:
+    secure: PPw0WkNdB8e4Z8u4zOlLSLychzoBETuyh0oSvGmE33xkMO4mxm46CqcfRnTsqCNWHwQkZKPsJ48Dngd1Q791KhSosEQLSZOktmy4Eu+Cf6srW0vDYK4tr9zSi+E+DboUhSqu8s9C2F9gUWnloKSx0xYS18QUsSbqWIjkT650STR34mnuT+ub5nHCjSKR4IRMU6zaO0pJxns8t9gA+l87WNrt/19bb2zW0Q0lejuWODeUvpHXp98KYxx83ni8RqzJHNHcqftDhfLMcPYHVWrY7zbhURUyj0Zy+pbRs/rTaP0ithjP5DTa0WDSLqf3UHKEqIuGQAaQL1hHBm+AAr2oOHl5DG0bvYW6XvkNdAgEeTtPbq3YRc4MoHCWEHEgHFInG3KmAMHyi2HS6bUrjEVcoHSyJv0WhzqjFBD5A75xVjBaMU/tYqddKYoRnOC8HuXgCINmSkUYLH8Z3reCBlHsbi3wPY2yqbeJX/yqZMnMg0pq3wQds6po8vtkMRQ2UnBnjLU3uQ1UBSDsRXJg3m+u8hYny9WVVa8a9AkZd5tF5yZGUGXCIP1f4TRI1/I45HW2axZM1KblpPuoW8B/LKOpp20WzfPn0Dzv3usFRarOsYut1tNKHnLn7GIyHquU9jVd90PV0f1P73p4BwXpxlDoQ8uEmKTLs/ACay0EEvIeuIo=
+  distributions: bdist_wheel
+  on:
+    condition: $TOXENV = lint
+    tags: true
