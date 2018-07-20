@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #   gogo-utils - Utility generating application details
 #
 #   Copyright 2016 Gogo, LLC
@@ -18,11 +19,12 @@ from setuptools import find_packages, setup
 
 setup(
     name='gogo-utils',
-    version='1.9.0',
     description='A utility library that generates service name convention details based on a repo url.',
     long_description=open('README.rst').read(),
     author='Sijis Aviles',
     author_email='saviles@gogoair.com',
+    setup_requires=['setuptools_scm'],
+    use_scm_version={'local_scheme': 'dirty-tag'},
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
     install_requires=[],
