@@ -21,12 +21,12 @@ except ImportError:
 
 
 class ParserError(Exception):
-    pass
+    """Base Parser error."""
 
 
 # pylint: disable=too-few-public-methods
 class Parser(object):
-    """A Parser for urls"""
+    """A Parser for urls."""
 
     def __init__(self, url, lower=True):
 
