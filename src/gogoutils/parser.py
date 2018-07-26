@@ -24,6 +24,7 @@ class ParserError(Exception):
     pass
 
 
+# pylint: disable=too-few-public-methods
 class Parser(object):
     """A Parser for urls"""
 
