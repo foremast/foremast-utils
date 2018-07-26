@@ -50,12 +50,15 @@ DEFAULT_FORMAT = {
 
 
 class Formats(object):
+    """Naming formats."""
+
     def __init__(self, config=None):
         if not config:
             config = {}
         self.config = ChainMap(config, DEFAULT_FORMAT)
 
     def get_formats(self):
+        """Return overlaid configurations."""
         return self.config
 
     def __getitem__(self, key):

@@ -13,7 +13,7 @@
 #   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
-
+"""Parse SCM URI for names to use in :class:`gogoutils.generator.Generator`."""
 try:
     from urllib.parse import urlparse
 except ImportError:
@@ -21,12 +21,12 @@ except ImportError:
 
 
 class ParserError(Exception):
-    pass
+    """Base Parser error."""
 
 
 # pylint: disable=too-few-public-methods
 class Parser(object):
-    """A Parser for urls"""
+    """A Parser for urls."""
 
     def __init__(self, url, lower=True):
 
@@ -36,8 +36,7 @@ class Parser(object):
         self.url = url.lower() if lower else url
 
     def parse_url(self):
-        """Parses a git/ssh/http(s) url"""
-
+        """Parse a git/ssh/http(s) url."""
         url = urlparse(self.url).path
 
         # handle git

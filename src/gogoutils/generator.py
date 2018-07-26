@@ -13,17 +13,17 @@
 #   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
-
+"""Name generator."""
 import logging
 from gogoutils.formats import Formats
 
 
 class GeneratorError(Exception):
-    pass
+    """Base Generator error."""
 
 
 class Generator(object):
-    """Generates application details"""
+    """Generate application details."""
 
     # pylint: disable=too-many-arguments
     def __init__(self, project, repo, env='dev', region='us-east-1', formats=None):
@@ -65,51 +65,51 @@ class Generator(object):
 
     @property
     def project(self):
-        """Return the project property"""
+        """Return the project property."""
         return self.data['project']
 
     @property
     def repo(self):
-        """Return the repo property"""
+        """Return the repo property."""
         return self.data['repo']
 
     @property
     def env(self):
-        """Return the env property"""
+        """Return the env property."""
         return self.data['env']
 
     def app_name(self):
-        """Generate application name"""
+        """Generate application name."""
         app = self.format['app'].format(**self.data)
         return app
 
     def dns_elb(self):
-        """Generate elb dns domain"""
+        """Generate elb dns domain."""
         dns = self.format['dns_elb'].format(**self.data)
         return dns
 
     def dns_elb_region(self):
-        """Generate dns domain with region"""
+        """Generate dns domain with region."""
         dns = self.format['dns_elb_region'].format(**self.data)
         return dns
 
     def dns_global(self):
-        """Generate dns global domain with no region"""
+        """Generate dns global domain with no region."""
         dns = self.format['dns_global'].format(**self.data)
         return dns
 
     def dns_region(self):
-        """Generate region specific DNS"""
+        """Generate region specific DNS."""
         dns = self.format['dns_region'].format(**self.data)
         return dns
 
     def dns_instance(self):
-        """Generate dns instance"""
+        """Generate dns instance."""
         instance = self.format['dns_instance'].format(**self.data)
         return instance
 
     def dns(self):
-        """Combined dns details"""
+        """DNS details."""
         dns = {
             'elb': self.dns_elb(),
             'elb_region': self.dns_elb_region(),
@@ -121,7 +121,7 @@ class Generator(object):
         return dns
 
     def s3_app_bucket(self, include_region=False):
-        """Generates s3 application bucket name.
+        """Generate s3 application bucket name.
 
         Args:
             include_region (bool): Include region in the name generation.
@@ -133,7 +133,7 @@ class Generator(object):
         return s3_app_bucket
 
     def shared_s3_app_bucket(self, include_region=False):
-        """Generates shared s3 application bucket name.
+        """Generate shared s3 application bucket name.
 
         Args:
             include_region (bool): Include region in the name generation.
@@ -145,7 +145,7 @@ class Generator(object):
         return shared_s3_app_bucket
 
     def iam(self):
-        """Generate iam details"""
+        """Generate iam details."""
         iam = {
             'group': self.format['iam_group'].format(**self.data),
             'lambda_role': self.format['iam_lambda_role'].format(**self.data),
@@ -159,7 +159,7 @@ class Generator(object):
         return iam
 
     def archaius(self):
-        """Generate archaius bucket path"""
+        """Generate archaius bucket path."""
         bucket = self.format['s3_bucket'].format(**self.data)
         path = self.format['s3_bucket_path'].format(**self.data)
         archaius_name = self.format['s3_archaius_name'].format(**self.data)
@@ -168,15 +168,14 @@ class Generator(object):
         return archaius
 
     def jenkins(self):
-        """Generate jenkins job details"""
+        """Generate jenkins job details."""
         job_name = self.format['jenkins_job_name'].format(**self.data)
         job = {'name': job_name}
 
         return job
 
     def gitlab(self):
-        """Generate gitlab details"""
-
+        """Generate gitlab details."""
         main_name = self.format['git_repo'].format(**self.data)
         qe_name = self.format['git_repo_qe'].format(**self.data)
         config_name = self.format['git_repo_configs'].format(**self.data)
@@ -190,7 +189,7 @@ class Generator(object):
         return git
 
     def apigateway(self):
-        """Generate apigateway details"""
+        """Generate apigateway details."""
         domain = self.format['apigateway_domain'].format(**self.data)
 
         return {
