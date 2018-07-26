@@ -25,6 +25,7 @@ class GeneratorError(Exception):
 class Generator(object):
     """Generates application details"""
 
+    # pylint: disable=too-many-arguments
     def __init__(self, project, repo, env='dev', region='us-east-1', formats=None):
 
         params = {
