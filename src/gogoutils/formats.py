@@ -50,6 +50,8 @@ DEFAULT_FORMAT = {
 
 
 class Formats(object):
+    """Naming formats."""
+
     def __init__(self, config=None):
         if not config:
             config = {}
