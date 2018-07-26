@@ -50,7 +50,9 @@ DEFAULT_FORMAT = {
 
 
 class Formats(object):
-    def __init__(self, config={}):
+    def __init__(self, config=None):
+        if not config:
+            config = {}
         self.config = ChainMap(config, DEFAULT_FORMAT)
 
     def get_formats(self):

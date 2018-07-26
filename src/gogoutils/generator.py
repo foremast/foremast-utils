@@ -25,7 +25,7 @@ class GeneratorError(Exception):
 class Generator(object):
     """Generates application details"""
 
-    def __init__(self, project, repo, env='dev', region='us-east-1', formats={}):
+    def __init__(self, project, repo, env='dev', region='us-east-1', formats=None):
 
         params = {
             'project': project,
@@ -39,6 +39,8 @@ class Generator(object):
                 error = '"{0}" parameter may not be None or empty'.format(param)
                 raise GeneratorError(error)
 
+        if not formats:
+            formats = {}
         self.format = Formats(formats)
         self.data = {
             'repo': params.get('repo').lower(),
