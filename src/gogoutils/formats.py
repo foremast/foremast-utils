@@ -28,6 +28,7 @@ DEFAULT_FORMAT = {
     'dns_instance': '{repo}{project}-xx.{env}.{domain}',
     'dns_region': '{repo}.{project}.{region}.{env}.{domain}',
     'domain': 'example.com',
+    'elb_app': '{repo}{project}',
     'git_repo': '{raw_project}/{raw_repo}',
     'git_repo_configs': '{raw_project}/{raw_repo}-config',
     'git_repo_qe': '{raw_project}/{raw_repo}-qa',
