@@ -76,9 +76,9 @@ These are the services you can customize the formats along with their default fo
     dns_elb,{repo}.{project}.{env}.{domain},FQDN of DNS ELB
     dns_instance,{repo}{project}-xx.{env}.{domain}, FQDN of instances
     domain,example.com,Domain
+    git_repo,{raw_project}/{raw_repo},Apps git repo
     git_repo_configs,{raw_project}/{raw_repo}-config,Config git repo
     git_repo_qe,{raw_project}/{raw_repo}-qa,QA's git repo
-    git_repo,{raw_project}/{raw_repo},Apps git repo
     iam_base,{project}_{repo},IAM profile base
     iam_group,{project},IAM group name
     iam_lambda_role,{project}_{repo}_lambda_role,Lambda IAM role name
@@ -89,11 +89,11 @@ These are the services you can customize the formats along with their default fo
     jenkins_job_name,{project}_{repo},Jenkins job name
     s3_app_bucket,{project}-{repo},Application specific S3 bucket name
     s3_app_region_bucket,{project}-{repo}-{region},Application specific S3 bucket name with region
+    s3_archaius_name,archaius-{env}/{project}/{repo}{project}/,S3 full path for archaius
+    s3_bucket,archaius-{env},S3 archaius bucket name
+    s3_bucket_path,{project}/{repo}{project},S3 path for app (within s3_bucket)
     shared_s3_app_bucket,common-{project},S3 bucket name for shared buckets
     shared_s3_app_region_bucket,common-{project}-{region},S3 bucket name for shared buckets with region
-    s3_archaius_name,archaius-{env}/{project}/{repo}{project}/,S3 full path for archaius
-    s3_bucket_path,{project}/{repo}{project},S3 path for app (within s3_bucket)
-    s3_bucket,archaius-{env},S3 archaius bucket name
 
 
 Contributions
