@@ -44,6 +44,7 @@ DEFAULT_FORMAT = {
     's3_archaius_name': 'archaius-{env}/{project}/{repo}{project}/',
     's3_bucket': 'archaius-{env}',
     's3_bucket_path': '{project}/{repo}{project}',
+    'security_group_app': '{repo}{project}',
     'shared_s3_app_bucket': 'common-{project}',
     'shared_s3_app_region_bucket': 'common-{project}-{region}',
 }
