@@ -146,8 +146,6 @@ class Generator(object):
 
     def iam(self):
         """Generate iam details"""
-        iam_base_name = self.format['iam_base'].format(**self.data)
-
         iam = {
             'group': self.format['iam_group'].format(**self.data),
             'lambda_role': self.format['iam_lambda_role'].format(**self.data),
@@ -155,6 +153,7 @@ class Generator(object):
             'profile': self.format['iam_profile'].format(**self.data),
             'role': self.format['iam_role'].format(**self.data),
             'user': self.format['iam_user'].format(**self.data),
+            'base': self.format['iam_base'].format(**self.data),
         }
 
         return iam
