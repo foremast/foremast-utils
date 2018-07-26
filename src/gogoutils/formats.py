@@ -22,15 +22,15 @@ except ImportError:
 DEFAULT_FORMAT = {
     'apigateway_domain': 'api.{env}.{domain}',
     'app': '{repo}{project}',
-    'dns_elb_region': '{repo}.{project}.{region}.{env}.{domain}',
     'dns_elb': '{repo}.{project}.{env}.{domain}',
+    'dns_elb_region': '{repo}.{project}.{region}.{env}.{domain}',
     'dns_global': '{repo}.{project}.{env}.{domain}',
-    'dns_region': '{repo}.{project}.{region}.{env}.{domain}',
     'dns_instance': '{repo}{project}-xx.{env}.{domain}',
+    'dns_region': '{repo}.{project}.{region}.{env}.{domain}',
     'domain': 'example.com',
+    'git_repo': '{raw_project}/{raw_repo}',
     'git_repo_configs': '{raw_project}/{raw_repo}-config',
     'git_repo_qe': '{raw_project}/{raw_repo}-qa',
-    'git_repo': '{raw_project}/{raw_repo}',
     'iam_base': '{project}_{repo}',
     'iam_group': '{project}',
     'iam_lambda_role': '{project}_{repo}_role',
@@ -41,11 +41,11 @@ DEFAULT_FORMAT = {
     'jenkins_job_name': '{project}_{repo}',
     's3_app_bucket': '{project}-{repo}',
     's3_app_region_bucket': '{project}-{repo}-{region}',
+    's3_archaius_name': 'archaius-{env}/{project}/{repo}{project}/',
+    's3_bucket': 'archaius-{env}',
+    's3_bucket_path': '{project}/{repo}{project}',
     'shared_s3_app_bucket': 'common-{project}',
     'shared_s3_app_region_bucket': 'common-{project}-{region}',
-    's3_archaius_name': 'archaius-{env}/{project}/{repo}{project}/',
-    's3_bucket_path': '{project}/{repo}{project}',
-    's3_bucket': 'archaius-{env}',
 }
 
 
