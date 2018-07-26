@@ -92,6 +92,7 @@ These are the services you can customize the formats along with their default fo
     s3_archaius_name,archaius-{env}/{project}/{repo}{project}/,S3 full path for archaius
     s3_bucket,archaius-{env},S3 archaius bucket name
     s3_bucket_path,{project}/{repo}{project},S3 path for app (within s3_bucket)
+    security_group_app,{repo}{project},Security Group name
     shared_s3_app_bucket,common-{project},S3 bucket name for shared buckets
     shared_s3_app_region_bucket,common-{project}-{region},S3 bucket name for shared buckets with region
 
