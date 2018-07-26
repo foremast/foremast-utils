@@ -76,6 +76,7 @@ These are the services you can customize the formats along with their default fo
     dns_elb,{repo}.{project}.{env}.{domain},FQDN of DNS ELB
     dns_instance,{repo}{project}-xx.{env}.{domain}, FQDN of instances
     domain,example.com,Domain
+    elb_app,{repo}{project},ELB Name
     git_repo,{raw_project}/{raw_repo},Apps git repo
     git_repo_configs,{raw_project}/{raw_repo}-config,Config git repo
     git_repo_qe,{raw_project}/{raw_repo}-qa,QA's git repo
