@@ -58,6 +58,7 @@ class Formats(object):
         self.config = ChainMap(config, DEFAULT_FORMAT)
 
     def get_formats(self):
+        """Return overlaid configurations."""
         return self.config
 
     def __getitem__(self, key):

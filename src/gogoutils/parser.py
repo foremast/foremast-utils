@@ -36,8 +36,7 @@ class Parser(object):
         self.url = url.lower() if lower else url
 
     def parse_url(self):
-        """Parses a git/ssh/http(s) url"""
-
+        """Parse a git/ssh/http(s) url."""
         url = urlparse(self.url).path
 
         # handle git
