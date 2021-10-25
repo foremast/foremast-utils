@@ -1,4 +1,4 @@
-#   gogo-utils - Utility generating application details
+#   foremast-utils - Utility generating application details
 #
 #   Copyright 2016 Gogo, LLC
 #
@@ -16,7 +16,7 @@
 
 """Validate Generator class."""
 import pytest
-from gogoutils.generator import Generator, GeneratorError
+from foremastutils.generator import Generator, GeneratorError
 
 
 PROJECTS = {

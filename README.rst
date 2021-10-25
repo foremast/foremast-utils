@@ -1,16 +1,16 @@
-.. image:: https://travis-ci.org/foremast/gogo-utils.svg?branch=master
-    :target: https://travis-ci.org/foremast/gogo-utils
+.. image:: https://travis-ci.org/foremast/foremast-utils.svg?branch=master
+    :target: https://travis-ci.org/foremast/foremast-utils
 
-Gogo-utils
+Foremast-utils
 ==========
 
-gogo-utils is a utility library that generates a service name convention based on a repo url. The
+foremast-utils is a utility library that generates a service name convention based on a repo url. The
 library is mainly used to ensure that an application is able to easily know the path to a service
 it may need.
 
 .. code:: python
 
-    from gogoutils import Parser, Generator
+    from foremastutils import Parser, Generator
 
     url = 'https://github.com/foremast/test.git'
     project, repo = Parser(url).parse_url()

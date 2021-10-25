@@ -1,4 +1,4 @@
-#   gogo-utils - Utility generating application details
+#   foremast-utils - Utility generating application details
 #
 #   Copyright 2016 Gogo, LLC
 #
@@ -13,7 +13,7 @@
 #   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
-"""Parse SCM URI for names to use in :class:`gogoutils.generator.Generator`."""
+"""Parse SCM URI for names to use in :class:`foremastutils.generator.Generator`."""
 try:
     from urllib.parse import urlparse
 except ImportError:
