@@ -1,4 +1,4 @@
-#   gogo-utils - Utility generating application details
+#   foremast-utils - Utility generating application details
 #
 #   Copyright 2016 Gogo, LLC
 #
@@ -15,7 +15,7 @@
 #   limitations under the License.
 
 import pytest
-from gogoutils.parser import Parser, ParserError
+from foremastutils.parser import Parser, ParserError
 
 
 def test_parser_url():

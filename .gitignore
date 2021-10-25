@@ -1,6 +1,13 @@
-_build/
+*.exports
+*.json
+*.properties
+_docs/foremast/
+CHANGELOG.rst
 
-# Created by https://www.gitignore.io/api/python
+# Created by https://www.gitignore.io/api/python,linux,vim,osx
+
+#IntelliJ Idea
+.idea/*
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
@@ -61,6 +68,9 @@ local_settings.py
 # Flask instance folder
 instance/
 
+# Scrapy stuff:
+.scrapy
+
 # Sphinx documentation
 docs/_build/
 
@@ -73,7 +83,32 @@ target/
 # pyenv
 .python-version
 
-# Created by https://www.gitignore.io/api/vim,osx,linux
+# celery beat schedule file
+celerybeat-schedule
+
+# dotenv
+.env
+
+# virtualenv
+venv/
+ENV/
+
+# Spyder project settings
+.spyderproject
+
+
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
 
 ### Vim ###
 # swap
@@ -84,6 +119,9 @@ Session.vim
 # temporary
 .netrwhist
 *~
+# auto-generated tag files
+tags
+
 
 ### OSX ###
 .DS_Store
@@ -111,18 +149,5 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-
-### Linux ###
-*~
-
-# temporary files which can be created if a process still has a handle open of a deleted file
-.fuse_hidden*
-
-# KDE directory preferences
-.directory
-
-# Linux trash folder which might appear on any partition or disk
-.Trash-*
-
-venv/
+_build
+config.py

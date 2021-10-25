@@ -1,29 +1,29 @@
-gogoutils package
+foremastutils package
 =================
 
 Submodules
 ----------
 
-gogoutils.formats module
+foremastutils.formats module
 ------------------------
 
-.. automodule:: gogoutils.formats
+.. automodule:: foremastutils.formats
     :members:
     :undoc-members:
     :show-inheritance:
 
-gogoutils.generator module
+foremastutils.generator module
 --------------------------
 
-.. automodule:: gogoutils.generator
+.. automodule:: foremastutils.generator
     :members:
     :undoc-members:
     :show-inheritance:
 
-gogoutils.parser module
+foremastutils.parser module
 -----------------------
 
-.. automodule:: gogoutils.parser
+.. automodule:: foremastutils.parser
     :members:
     :undoc-members:
     :show-inheritance:
@@ -32,7 +32,7 @@ gogoutils.parser module
 Module contents
 ---------------
 
-.. automodule:: gogoutils
+.. automodule:: foremastutils
     :members:
     :undoc-members:
     :show-inheritance:

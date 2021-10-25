@@ -1,32 +1,24 @@
-How to do releases
-==================
+How To Create Releases
+----------------------
 
-Setup
------
+Creating a New Release
+======================
 
-Add the following to ``~/.pypirc`` file
+When releasing a new version, the following needs to occur:
 
-.. code::
+#. Pull the latest main branch
 
-    [distutils]
-    index-servers =
-        pypi
+   .. code:: bash
 
-    [pypi]
-    repository = https://pypi.python.org/pypi
-    username = username
-    password = xxxyyyzzz
+      git pull origin main
 
-Upload Release
---------------
+#. Ensure all test via ``tox`` pass
+#. Add version Tag
 
-When releasing a new version, the following needs to occur
+   .. code:: bash
 
-- Update version in ``setup.py``
-- Ensure all test via ``tox`` pass
+      git tag -a v#.#.#
+      git push --tags
 
-Once that is taken care of, execute the following:
-
-.. code:: sh
-
-    $ python setup.py bdist_wheel upload
+#. Github Actions won `tag` creation will build/publish to PyPI
+#. Ensure proper build on: https://test.pypi.org/project/foremast-utils/#history

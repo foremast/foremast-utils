@@ -1,4 +1,4 @@
-#   gogo-utils - Utility generating application details
+#   foremast-utils - Utility generating application details
 #
 #   Copyright 2016 Gogo, LLC
 #
@@ -15,7 +15,7 @@
 #   limitations under the License.
 """Name generator."""
 import logging
-from gogoutils.formats import Formats
+from foremastutils.formats import Formats
 
 
 class GeneratorError(Exception):
