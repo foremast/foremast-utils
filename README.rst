@@ -1,8 +1,18 @@
-.. image:: https://travis-ci.org/foremast/foremast-utils.svg?branch=master
-    :target: https://travis-ci.org/foremast/foremast-utils
+.. image:: https://github.com/foremast/foremast-utils/actions/workflows/githubactions-tox.yml/badge.svg
+    :target: https://github.com/foremast/foremast-utils/actions/workflows/githubactions-tox.yml
 
-Foremast-utils
-==========
+.. image:: https://github.com/foremast/foremast-utils/actions/workflows/codeql-analysis.yml/badge.svg
+    :target: https://github.com/foremast/foremast-utils/actions/workflows/codeql-analysis.yml
+
+.. image:: https://badges.gitter.im/foremast/foremast.svg
+   :alt: Join the chat at https://gitter.im/foremast/foremast
+   :target: https://gitter.im/foremast/foremast?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+
+.. image:: https://badge.fury.io/py/foremast-utils.svg
+    :target: https://badge.fury.io/py/foremast-utils
+
+foremast-utils
+==============
 
 foremast-utils is a utility library that generates a service name convention based on a repo url. The
 library is mainly used to ensure that an application is able to easily know the path to a service
@@ -25,13 +35,13 @@ it may need.
     info = Generator(project, repo, 'dev', formats=my_formats)
 
     info.jenkins()
-    > {'name': 'foremast-test-master'}
+    # {'name': 'foremast-test-master'}
 
     info.app_name()
-    > app-foremasttest
+    # app-foremasttest
 
     info.custom
-    > foremast*.*test
+    # foremast*.*test
 
 
 Classes
