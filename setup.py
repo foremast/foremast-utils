@@ -24,10 +24,10 @@ with open('requirements.txt', 'rt', encoding="ascii") as reqs_file:
 with open('README.rst', encoding="ascii") as readme_file:
     readme_content = readme_file.read()
 
-if __name__ == "__main__": 
+if __name__ == "__main__":
     setuptools.setup(
         name='foremast-utils',
-        description='A utility library for Foremast that generates resource names to a common naming convention based on a repo url.',
+        description='A utility library for Foremast that generates names based on a common naming convention.',
         long_description=readme_content,
         author='Foremast',
         author_email='joelvasallo+foremast@gmail.com',
